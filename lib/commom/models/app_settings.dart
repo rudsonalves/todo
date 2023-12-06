@@ -5,7 +5,7 @@ class AppSettings extends ChangeNotifier {
   static final AppSettings _instance = AppSettings._();
   static AppSettings get instance => _instance;
 
-  ThemeMode _themeMode = ThemeMode.light;
+  ThemeMode _themeMode = ThemeMode.dark;
 
   ThemeMode get themeMode => _themeMode;
 

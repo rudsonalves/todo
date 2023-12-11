@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 import '../../commom/models/task_model.dart';
-import '../../data/sql_task_repository.dart';
+import '../../data/sqflite_repository.dart';
 import 'todo_home_state.dart';
 
 class TodoHomeController extends ChangeNotifier {
@@ -9,7 +9,7 @@ class TodoHomeController extends ChangeNotifier {
 
   TodoHomeState get state => _state;
 
-  final _taskRepository = SqlTaskRepository();
+  final _taskRepository = SqfliteRepository(); //MockSqlTaskRepository();
 
   List<TaskModel> get tasks => _taskRepository.tasks;
 
@@ -19,6 +19,7 @@ class TodoHomeController extends ChangeNotifier {
   }
 
   Future<void> init() async {
+    await _taskRepository.init();
     queryTask();
   }
 

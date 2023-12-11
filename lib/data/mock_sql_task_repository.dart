@@ -1,7 +1,7 @@
 import '../commom/models/task_model.dart';
 import 'task_database.dart';
 
-class SqlTaskRepository implements TaskDatabase {
+class MockSqlTaskRepository implements TaskDatabase {
   final _tasks = <TaskModel>[];
 
   List<TaskModel> get tasks => _tasks;
@@ -48,4 +48,7 @@ class SqlTaskRepository implements TaskDatabase {
 
     return 1;
   }
+
+  @override
+  Future<void> init() async {}
 }
